@@ -57,14 +57,11 @@ FEATURES="assume-digests binpkg-docompress binpkg-dostrip binpkg-logs
           unknown-features-warn unmerge-logs unmerge-orphans userfetch
           userpriv usersandbox usersync"
 
-# Ignore file collisions in /lib/modules since files inside this directory
-# are never unmerged, and therefore collisions must be ignored in order for
-# FEATURES=protect-owned to operate smoothly in all cases.
 # Ignore file collisions for unowned *.pyo and *.pyc files, this helps during
 # transition from compiling python modules in live file system to compiling
 # them in src_install() function.
-COLLISION_IGNORE="/lib/modules/* *.py[co] *\$py.class"
-UNINSTALL_IGNORE="/lib/modules/*"
+COLLISION_IGNORE="*.py[co] *\$py.class"
+UNINSTALL_IGNORE=""
 
 # By default wait 5 secs before cleaning a package
 CLEAN_DELAY="5"
